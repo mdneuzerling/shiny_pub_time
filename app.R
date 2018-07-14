@@ -16,9 +16,11 @@ ui <- fluidPage(
         
         mainPanel(
             tags$br(),
-            textOutput("pub_time"),
+            h3(textOutput("pub_time")),
             tags$br(), 
-            actionButton("refresh_button", "I don't like that time")
+            actionButton("refresh_button", "I don't like that time"),
+            tags$br(), tags$br(),
+            a("Source", href = "https://github.com/mdneuzerling/shiny_pub_time")
         )
     )
 )
