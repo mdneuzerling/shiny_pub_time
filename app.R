@@ -8,8 +8,10 @@ ui <- fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            timeInput("from", "From:", value = strptime("12:00:00", "%T")),
-            timeInput("to", "To:", value = strptime("18:00:00", "%T"))
+            timeInput("from", "From:", 
+                      value = strptime("12:00:00", "%T"), seconds = FALSE),
+            timeInput("to", "To:", 
+                      value = strptime("18:00:00", "%T"), seconds = FALSE)
         ),
         
         mainPanel(
@@ -26,7 +28,7 @@ server <- function(input, output) {
     sample_time <- function(from, to, by) {
         seq(from = from, to = to, by = by) %>% 
             sample(1) %>% 
-            strftime(format="%H:%M") %>% 
+            strftime(format = "%H:%M") %>% 
             as.character
     }  
     
